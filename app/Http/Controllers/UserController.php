@@ -37,7 +37,7 @@ class UserController extends Controller
                 ]
             ]);
         } catch (\Exception $e) {
-            return response('User has arleady registred', 400);
+            return response('Este email já está cadastrado', 400);
         }
     }
 

@@ -22,9 +22,11 @@ class AuthController extends Controller
                 'error' => 'Unauthorized'
             ], 400);
         }
+        $user = auth()->user();
 
         return response()->json([
             'data' => [
+                'user' => $user,
                 'token' => $token,
                 'token_type' => 'bearer',
                 'expirees_in' => auth()->factory()->getTTL() * 60

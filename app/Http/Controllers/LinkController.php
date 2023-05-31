@@ -13,7 +13,7 @@ class LinkController extends Controller
     public function store(LinkRequest $request)
     {
         $user = auth()->user();
-
+        
         try {
             $input = $request->validated();
 
@@ -30,6 +30,7 @@ class LinkController extends Controller
                 'data' => $response
             ]);
         } catch (\Exception $e) {
+            dd($e);
             return response()->json([
                 'status' => 'error',
                 'message' => 'identifier has arleady registered'
